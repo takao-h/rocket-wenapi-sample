@@ -10,5 +10,5 @@ mod routes;
 use routes::*;
 
 fn main() {
-    rocket::ignite().mount("/", routes![index, todos, new_todo, todo_by_id]).launch();
+    rocket::ignite().mount("/", routes![index, todos, new_todo, todo_by_id, users]).launch();
 }

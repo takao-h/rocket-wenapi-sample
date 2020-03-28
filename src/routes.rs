@@ -1,7 +1,7 @@
 // JSONを返すのに必要
 use rocket_contrib::json::Json;
 
-use crate::models::ToDo;
+use crate::models::*;
 
 #[get("/")]
 pub fn index() -> &'static str {
@@ -36,4 +36,14 @@ pub fn todo_by_id(todoid: u32) -> String {
         done: false,
     };
     format!("{:?}", todo)
+}
+
+/// user一覧を取得する
+#[get("/users")]
+pub fn users() -> Json<Vec<User>> {
+    Json(vec! [User {
+        id: 1,
+        name: "takao".into(),
+        email: "hoge@email.com".into(),
+    }])
 }
